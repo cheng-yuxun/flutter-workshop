@@ -1,12 +1,5 @@
 ## Flutter Workshop 2022
 
-This project is a starting point for a Flutter application.
+[Lab Guide](https://docs.google.com/document/d/1oVb0Jjfn4hS9H-b79katrTdg1R4TfFa7KV1IOCQzjBo/edit?usp=sharing)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+For additional help with Flutter development, view the [Flutter Documentation](https://docs.flutter.dev/)

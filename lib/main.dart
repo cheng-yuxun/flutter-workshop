@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
@@ -13,14 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Startup Name Generator',
-        theme: ThemeData(
+      title: 'Startup Name Generator',
+      theme: ThemeData(
           appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0XFF00FA9A),
             foregroundColor: Colors.black,
           )
-        ),
-        home: const RandomWords());
+      ),
+      home: const RandomWords(),
+    );
   }
 }
 
@@ -42,15 +41,14 @@ class _RandomWordsState extends State<RandomWords> {
       appBar: AppBar(
         title: const Text('Startup Name Generator'),
         actions: [
-          IconButton(
-            onPressed: _pushSaved,
+          IconButton(onPressed: _pushSaved,
             icon: const Icon(Icons.list),
             tooltip: 'Saved Suggestions',
           )
         ],
       ),
-      body: ListView.builder(
-          padding: const EdgeInsets.all(16.0),
+      body:
+      ListView.builder(
           itemBuilder: (context, i) {
             if (i.isOdd) return const Divider();
 
@@ -63,11 +61,12 @@ class _RandomWordsState extends State<RandomWords> {
             final alreadySaved = _saved.contains(_suggestions[index]);
 
             return ListTile(
-              title: Text(_suggestions[index].asPascalCase, style: _biggerFont),
+              title: Text(_suggestions[index].asPascalCase,
+                style: _biggerFont,),
               trailing: Icon(
-                alreadySaved ? Icons.favorite : Icons.favorite_outline_rounded,
+                alreadySaved ? Icons.favorite : Icons.favorite_border,
                 color: alreadySaved ? Colors.red : null,
-                semanticLabel: alreadySaved ? 'Remove from saved' : 'Save',
+                semanticLabel: alreadySaved ? 'Remove from save' : 'Save',
               ),
               onTap: () {
                 setState(() {
@@ -79,35 +78,37 @@ class _RandomWordsState extends State<RandomWords> {
                 });
               },
             );
-          }),
+          }
+      ),
     );
   }
-
-  void _pushSaved() {
+  void _pushSaved () {
     Navigator.of(context).push(
-      MaterialPageRoute(
+      MaterialPageRoute<void>(
         builder: (context) {
           final tiles = _saved.map(
-            (pair) {
+                (pair) {
               return ListTile(
-                title: Text(pair.asPascalCase, style: _biggerFont),
+                title: Text(pair.asPascalCase, style: _biggerFont,),
               );
             },
           );
           final divided = tiles.isNotEmpty
               ? ListTile.divideTiles(
-                  context: context,
-                  tiles: tiles,
-                ).toList()
+            context: context,
+            tiles: tiles,
+          ).toList()
               : <Widget>[];
+
           return Scaffold(
             appBar: AppBar(
               title: const Text('Saved Suggestions'),
             ),
-            body: ListView(children: divided),
+            body: ListView(children: divided,),
           );
         },
       ),
+
     );
   }
 }
